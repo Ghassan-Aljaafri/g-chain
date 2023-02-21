@@ -19,9 +19,8 @@ export default class Block {
     }
 
     public calcHash() {
-        return crypto.SHA256(JSON.stringify(this)).toString();
-
-        // return crypto.SHA256(this.index + JSON.stringify(this.data) + this.timestamp + this.prevHash).toString();
+        let hash = crypto.SHA256(this.index + JSON.stringify(this.data) + this.timestamp + this.prevHash).toString();
+        return hash;
     }
 
     public setPrevHash(prevHash: string) {
